@@ -1,0 +1,4 @@
+.todo-child {
+    display: flex;
+    justify-content: space-between;
+}

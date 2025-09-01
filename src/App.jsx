@@ -4,6 +4,8 @@ import InputTodo from './components/todo/InputTodo'
 import ListTodo from './components/todo/ListTodo'
 import './App.css'
 import './index.css'
+import { useState } from 'react'
+
 const App = () => {
   const name = "Quang Ha";
   const age = 18;
@@ -12,18 +14,27 @@ const App = () => {
     job: "Developer"
   }
 
-  const callFunction = (name) => {
-    alert(`Hello ${name}`);
+  const [todoList, setTodoList] = useState([
+  ])
+
+  const addNewTodo = (name) => {
+    const newTodo ={
+      id: crypto.randomUUID(), 
+      name: name
+    }
+    setTodoList([...todoList, newTodo])
   }
   return (
     <>
       <h1>Todo List</h1>
-      <InputTodo />
+      <InputTodo
+        addNewTodo={addNewTodo} 
+      />
       <ListTodo
       name = {name}
       age = {age}
       data = {data}
-      callFunction = {callFunction}
+      todoList = {todoList}
       />
       <img src={reactLogo} className="logo react" alt="React logo" />
     </>
