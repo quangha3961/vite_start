@@ -3,6 +3,9 @@ import viteLogo from '/vite.svg'
 import InputTodo from './components/todo/InputTodo'
 import ListTodo from './components/todo/ListTodo'
 import { useState } from 'react'
+import Header from './components/layout/header'
+import Footer from './components/layout/footer'
+import { Outlet } from 'react-router-dom'
 
 const App = () => {
   const name = "Quang Ha";
@@ -28,6 +31,8 @@ const App = () => {
   }
   return (
     <>
+      <Outlet />
+      <Header />
       <h1>Todo List</h1>
       <InputTodo
         addNewTodo={addNewTodo} 
@@ -42,6 +47,7 @@ const App = () => {
       {todoList.length === 0 && 
       <img src={reactLogo} className="logo react" alt="React logo" />
   }
+      <Footer />
     </>
   )
 }
