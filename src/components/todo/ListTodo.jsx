@@ -1,9 +1,13 @@
 import './todo.css';
 const ListTodo = (props) => {
     console.log(props);
-    const { name, age, data,todoList} = props;
+    const { name, age, data, todoList, deleteTodo } = props;
     //callFunction("Quang Ha");
     console.log(todoList, "ListTodo");
+
+    const handleDelelete = (id) => {
+        deleteTodo(id);
+    }
     return (
         <>
             <ul>
@@ -11,7 +15,9 @@ const ListTodo = (props) => {
                     return (
                         <div className={`todo-child `} key ={value.id} >
                                 <div>{value.name}</div>
-                                <button>Delete</button>
+                                <button onClick={() => {
+                                    handleDelelete(value.id);
+                                }}>Delete</button>
                         </div>
                     )
                 })}

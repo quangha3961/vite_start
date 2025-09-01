@@ -13,10 +13,14 @@ const App = () => {
     address: "Hanoi",
     job: "Developer"
   }
-
+  
   const [todoList, setTodoList] = useState([
   ])
-
+  
+  const deleteTodo = (id) => {
+    const newListTodo = todoList.filter((item) => item.id !== id);
+    setTodoList(newListTodo);
+  }
   const addNewTodo = (name) => {
     const newTodo ={
       id: crypto.randomUUID(), 
@@ -35,8 +39,11 @@ const App = () => {
       age = {age}
       data = {data}
       todoList = {todoList}
+      deleteTodo={deleteTodo}
       />
+      {todoList.length === 0 && 
       <img src={reactLogo} className="logo react" alt="React logo" />
+  }
     </>
   )
 }
