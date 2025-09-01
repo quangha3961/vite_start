@@ -2,8 +2,6 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import InputTodo from './components/todo/InputTodo'
 import ListTodo from './components/todo/ListTodo'
-import './App.css'
-import './index.css'
 import { useState } from 'react'
 
 const App = () => {
