@@ -1,25 +1,36 @@
-import React from 'react';
+import React, { use, useState } from 'react';
 import { Button, Input } from 'antd';
 const UserForm = () => {
+    const [fullName, setFullName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [phone, setPhone] = useState('');
+    console.log({fullName, email, password, phone});
+
+    const handleSubmit = () => {
+        alert('Submit');
+    }
     return (
         <div>
             <div>
                 <span>Full Name</span>
-                <Input placeholder="Full Name" />
+                <Input placeholder="Full Name"  onChange={(e)=>{
+                    setFullName(e.target.value);
+                }}/>
             </div>
             <div>
                 <span>Email</span>
-                <Input placeholder="Email" />
+                <Input placeholder="Email" onChange={(e)=> setEmail(e.target.value)} />
             </div>
             <div>
                 <span>Password</span>
-                <Input.Password placeholder="Password" />
+                <Input.Password placeholder="Password" onChange={(e) => setPassword(e.target.value)}/>
             </div>
             <div>
                 <span>Phone</span>
-                <Input placeholder="Phone" />
+                <Input placeholder="Phone"  onChange={(e)=> setPhone(e.target.value)}/>
             </div>
-            <Button type="primary">Submit</Button>
+            <Button type="primary" onClick={(e)=>handleSubmit(e)}>Submit</Button>
         </div>
     )
 }
