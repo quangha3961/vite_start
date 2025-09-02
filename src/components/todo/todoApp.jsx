@@ -45,4 +45,4 @@ const TodoApp = () => {
     )
 }
 
-export default todoApp;
+export default TodoApp;
