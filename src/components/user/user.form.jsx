@@ -1,6 +1,7 @@
 import React, { use, useState } from 'react';
-import { Button, Input } from 'antd';
+import { Button, Input, notification } from 'antd';
 import axios from 'axios';
+import { createAPI } from '../../services/api.services';
 const UserForm = () => {
     const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
@@ -8,15 +9,13 @@ const UserForm = () => {
     const [phone, setPhone] = useState('');
     console.log({fullName, email, password, phone});
 
-    const handleSubmit = () => {
-        const URL_BE = "https://localhost:8080/api/v1/user";
-        const data = {
-            fullName: fullName,
-            email: email,
-            password: password,
-            phone: phone
+    const handleSubmit = async (e) => {
+        const res = await createAPI(fullName, email, password, phone);
+        if(res.data && res.data.data){
+            notification.success({
+                message: "Create user successfully"
+            })
         }
-        axios.post(URL_BE, data)
     }
     return (
         <div>
