@@ -11,7 +11,7 @@ const UserForm = () => {
 
     const handleSubmit = async (e) => {
         const res = await createAPI(fullName, email, password, phone);
-        if(res.data && res.data.data){
+        if(res.data){
             notification.success({
                 message: "Create user successfully"
             })

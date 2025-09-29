@@ -1,7 +1,7 @@
-import axios from "axios";
-
+// import axios from "axios";
+import axios from "./axios.customize"
 const createAPI = (fullName, email, password, phone) => {
-    const URL_BE = "https://localhost:8080/api/v1/user";
+    const URL_BE = "/api/v1/user";
     const data = {
         fullName: fullName,
         email: email,
